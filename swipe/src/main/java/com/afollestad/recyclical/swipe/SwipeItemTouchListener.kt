@@ -137,9 +137,9 @@ internal class SwipeItemTouchListener(
 
         val actionKeyForItemShort = ActionKey(location = RIGHT, itemClassName = itemClass)
         val actionKeyGlobalShort = ActionKey(location = RIGHT, itemClassName = null)
-        action = actions[actionKeyForItemShort] ?: actions[actionKeyGlobalShort]
+        action = actions[actionKeyForItemShort] ?: actions[actionKeyGlobalShort] ?: return
 
-        icon = action?.iconDrawable ?: return
+        icon = action.iconDrawable ?: return
         background = action.backgroundDrawable ?: ColorDrawable(DKGRAY)
 
         if (icon != null) {
@@ -171,9 +171,9 @@ internal class SwipeItemTouchListener(
 
         val actionKeyForItemShort = ActionKey(location = LEFT, itemClassName = itemClass)
         val actionKeyGlobalShort = ActionKey(location = LEFT, itemClassName = null)
-        action = actions[actionKeyForItemShort] ?: actions[actionKeyGlobalShort]
+        action = actions[actionKeyForItemShort] ?: actions[actionKeyGlobalShort] ?: return
 
-        icon = action?.iconDrawable ?: return
+        icon = action.iconDrawable
         background = action.backgroundDrawable ?: ColorDrawable(DKGRAY)
 
         if (icon != null) {
